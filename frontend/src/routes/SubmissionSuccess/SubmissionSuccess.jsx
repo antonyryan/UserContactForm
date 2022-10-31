@@ -6,7 +6,7 @@ const SubmissionSuccess = () => {
       sx={{
         textAlign: 'center',
         fontSize: '4rem',
-        marginTop: '300px',
+        margin: '350px 0',
       }}>
       Thank you for your submission.
     </Box>
