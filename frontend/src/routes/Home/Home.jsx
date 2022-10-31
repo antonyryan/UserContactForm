@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import { Formik } from 'formik'
@@ -20,21 +21,29 @@ export const validationSchema = Yup.object().shape({
   last_name: Yup.string().required('This field is required!'),
   email: Yup.string().required('This field is required!').email(),
   us_state: Yup.string().required('This field is required!'),
-  zip_code: Yup.string().required('This field is required!'),
+  zip_code: Yup.string()
+    .required('This field is required!')
+    .matches(/^\d{5}(-\d{4})?$/, 'Is not in correct format'),
 })
 
 const Home = () => {
-  const handleSubmit = useCallback((payload, formActions) => {
-    console.log({ payload })
-    axios
-      .post('/api/create_user', payload)
-      .then(res => {
-        console.log({ res })
-      })
-      .catch(err => {
-        console.log({ err })
-      })
-  }, [])
+  const navigate = useNavigate()
+  const handleSubmit = useCallback(
+    (payload, formActions) => {
+      console.log({ payload })
+      axios
+        .post('/api/create_user', payload)
+        .then(res => {
+          if (res.status === 200) {
+            navigate('/user/submission_success')
+          }
+        })
+        .catch(err => {
+          console.log({ err })
+        })
+    },
+    [navigate],
+  )
 
   return (
     <Container>
