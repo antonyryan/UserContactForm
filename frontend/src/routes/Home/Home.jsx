@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
@@ -53,19 +55,24 @@ const Home = () => {
 
   return (
     <Container>
-      <Box
-        sx={{
-          padding: '100px 10%',
-        }}>
-        <Box>UserContactForm</Box>
-        <Formik
-          component={UserContactForm}
-          initialValues={initialValues}
-          onSubmit={handleSubmit}
-          validationSchema={validationSchema}
-          enableReinitialize
-        />
-      </Box>
+      <Paper elevation={5}>
+        <Box
+          sx={{
+            padding: '100px 10%',
+            margin: '50px 0 150px',
+          }}>
+          <Typography variant="h4" sx={{ marginBottom: '30px' }}>
+            User Contact Form
+          </Typography>
+          <Formik
+            component={UserContactForm}
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+            validationSchema={validationSchema}
+            enableReinitialize
+          />
+        </Box>
+      </Paper>
     </Container>
   )
 }

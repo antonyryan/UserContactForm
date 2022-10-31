@@ -4,6 +4,7 @@ import { Route, Routes as Switch } from 'react-router-dom'
 import Home from './Home'
 import SubmissionSuccess from './SubmissionSuccess'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 function Routes() {
   return (
@@ -13,6 +14,7 @@ function Routes() {
         <Route exact path="user/new" element={<Home />} />
         <Route exact path="user/submission_success" element={<SubmissionSuccess />} />
       </Switch>
+      <Footer />
     </>
   )
 }

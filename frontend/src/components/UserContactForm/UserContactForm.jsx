@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
 import { Field } from 'formik'
 
 import FormInput from '../FormInput'
@@ -26,9 +27,11 @@ const UserContactForm = ({ handleSubmit }) => {
           <Field component={FormInput} htmlId="zip_code" type="text" name="zip_code" label="Zip Code" />
         </Grid>
       </Grid>
-      <Button type="submit" variant="contained" color="primary">
-        Submit
-      </Button>
+      <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Button sx={{ right: 0 }} type="submit" variant="contained" color="primary">
+          Submit
+        </Button>
+      </Box>
     </form>
   )
 }
