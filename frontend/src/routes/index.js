@@ -13,6 +13,7 @@ function Routes() {
       <Switch>
         <Route exact path="user/new" element={<Home />} />
         <Route exact path="user/submission_success" element={<SubmissionSuccess />} />
+        <Route path="*" element={<Home />} />
       </Switch>
       <Footer />
     </>

@@ -18,10 +18,9 @@ const Footer = () => {
   )
 
   return (
-    <footer>
+    <footer style={{ backgroundColor: '#1976d2' }}>
       <Container
         sx={{
-          backgroundColor: '#1976d2',
           color: '#FFFFFF',
         }}
         maxWidth="xl">
