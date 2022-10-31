@@ -16,11 +16,14 @@ PHP version = 7.3.28
 
 Laravel version = 8.75
 
+Make sure MySQL server is running
+
 1. `composer install `
 2. `npm install `
 3. Create a .env by copying .env.example.
-4. `php artisan migrate `
-5. `php artisan serve `
+4. Create a database(utf8mb4_general_ci) "laravel" on the MySQL.
+5. `php artisan migrate `
+6. `php artisan serve `
 
 ## What I have done
 
