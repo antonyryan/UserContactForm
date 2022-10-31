@@ -19,8 +19,12 @@ const initialValues = {
 }
 
 export const validationSchema = Yup.object().shape({
-  first_name: Yup.string().required('This field is required!'),
-  last_name: Yup.string().required('This field is required!'),
+  first_name: Yup.string()
+    .required('This field is required!')
+    .matches(/[A-Z][a-z]*/, 'Invalid first name given'),
+  last_name: Yup.string()
+    .required('This field is required!')
+    .matches(/[a-z ,.'-]+$/i, 'Invalid last name given'),
   email: Yup.string().required('This field is required!').email(),
   us_state: Yup.string().required('This field is required!'),
   zip_code: Yup.string()
