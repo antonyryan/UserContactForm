@@ -30,15 +30,21 @@ const Home = () => {
   const navigate = useNavigate()
   const handleSubmit = useCallback(
     (payload, formActions) => {
-      console.log({ payload })
+      console.log({ formActions })
+      formActions.setSubmitting(true)
       axios
         .post('/api/create_user', payload)
         .then(res => {
+          formActions.setSubmitting(false)
           if (res.status === 200) {
             navigate('/user/submission_success')
           }
         })
         .catch(err => {
+          formActions.setSubmitting(false)
+          if (err.response.status === 403 && err.response.data === 'This email already exists') {
+            formActions.setFieldError('email', err.response.data)
+          }
           console.log({ err })
         })
     },
