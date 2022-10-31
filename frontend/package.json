@@ -57,6 +57,7 @@
       "last 1 safari version"
     ]
   },
+  "proxy": "http://localhost:8000",
   "devDependencies": {
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",

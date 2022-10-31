@@ -27,7 +27,7 @@ const Home = () => {
   const handleSubmit = useCallback((payload, formActions) => {
     console.log({ payload })
     axios
-      .post('http://localhost:8000/api/create_user', payload)
+      .post('/api/create_user', payload)
       .then(res => {
         console.log({ res })
       })
