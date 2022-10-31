@@ -1,12 +1,12 @@
 import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import { Field } from 'formik'
-import * as Yup from 'yup'
 
-import FormInput from '../../components/FormInput'
+import FormInput from '../FormInput'
+import FormSelect from '../FormSelect'
+import { usStates } from './USStates'
 
 const UserContactForm = ({ handleSubmit }) => {
-  // console.log({handleSubmit})
   return (
     <form onSubmit={handleSubmit}>
       <Grid container spacing={2}>
@@ -18,10 +18,9 @@ const UserContactForm = ({ handleSubmit }) => {
         </Grid>
       </Grid>
       <Field component={FormInput} htmlId="email" type="email" name="email" label="Email" />
-      {/* <Field component={FormInput} htmlId="first_name" type="text" name="first_name" label="First Name" /> */}
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
-          <Field component={FormInput} htmlId="us_state" type="text" name="us_state" label="US State" />
+          <Field component={FormSelect} htmlId="us_state" name="us_state" label="US State" options={usStates} />
         </Grid>
         <Grid item xs={12} sm={6}>
           <Field component={FormInput} htmlId="zip_code" type="text" name="zip_code" label="Zip Code" />

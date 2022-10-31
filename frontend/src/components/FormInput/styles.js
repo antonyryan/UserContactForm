@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles'
 const color = '#536DFE'
 const lightenRate = 7.5
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   textFieldUnderline: {
     '&:before': {
       borderBottomColor: tinycolor(color).lighten(lightenRate).toHexString(),
@@ -22,6 +22,6 @@ const useStyles = makeStyles(theme => ({
   noMb: {
     marginBottom: `0 !important`,
   },
-}))
+})
 
 export default useStyles
